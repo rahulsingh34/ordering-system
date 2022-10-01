@@ -51,7 +51,7 @@ int main(void) {
 	char addDessert;
 	int dessertSelection = -1;
 	float dessertPrices[] = {2.49, 1.49, 2.99};
-	char* dessertOptions[] = {"Doughnut", "Chocolate Chip Cookies", "Cinnamon Roll"};
+	char* dessertOptions[] = {"Doughnut", "Chocolate Chip Cookie", "Cinnamon Roll"};
 
 	//Initialization of total variables
 	float subtotal = 0.00;
