@@ -1,3 +1,31 @@
+/***1045176A1.c***
+Student Name: Rahul Singh
+Id: rsingh20
+Due Date: October 7th 2022 at 11:59pm
+Course Name: CIS 1500
+***
+I have exclusive control over this submission via my password. By including this statement in
+this header comment, I certify that:
+1) I have read and understood the University policy on academic integrity;
+2) I have completed assigned video on academic integrity; and
+3) I assert that this work is my own. I have acknowledged any and all material (code, data,
+images, ideas or words) that I have used, whether directly quoted or paraphrased is my own
+work. Furthermore, I certify that this assignment was prepared by me specifically for this course.
+***
+The program should be compiled using the following flags:
+-std=c99
+-Wall
+Ex. compiling:
+gcc 1045176.c -std=c99 -Wall
+OR
+gcc 1045176.c -std=c99 -Wall -o assn1
+***
+After compiling, the program should be run using one of the following commands:
+./a.out
+OR
+./assn1
+***/
+
 #include <stdio.h>
 
 int main(void) {
@@ -13,13 +41,13 @@ int main(void) {
 	float sidePrices[] = {3.49, 3.99, 3.49};
 	char* sideOptions[] = {"Fries", "Sweet Potato Fries", "Onion Rings"};
 
-	//Initialization of drink varibles
+	//Initialization of drink variables
 	char addDrink;
 	int drinkSelection = -1;
 	float drinkPrices[] = {2.49, 2.99, 2.99, 2.99};
 	char* drinkOptions[] = {"Lemonade", "Iced Tea", "Orange Juice", "Apple Juice"};
 
-	//Initialization of dessert varibles
+	//Initialization of dessert variables
 	char addDessert;
 	int dessertSelection = -1;
 	float dessertPrices[] = {2.49, 1.49, 2.99};
