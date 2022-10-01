@@ -14,6 +14,12 @@ int main(void) {
 	float sidePrices[] = {3.49, 3.99, 3.49};
 	char* sideOptions[] = {"Fries", "Sweet Potato Fries", "Onion Rings"};
 
+	//Initialization of drink varibles
+	char addDrink;
+	int drinkSelection = 0;
+	float drinkPrices[] = {2.49, 2.99, 2.99, 2.99};
+	char* drinkOptions[] = {"Lemonade", "Iced Tea", "Orange Juice", "Apple Juice"};
+
 	//Welcome + prompt for main dish
 	printf("Welcome to SoCSBurger!\n\nCan I get you started with a main?\nEnter Y, y, N, n: ");
 	scanf("%c", &addMain);
@@ -69,4 +75,29 @@ int main(void) {
 
 	//Clear scanf buffer
 	fflush(stdin);
+
+	//Prompt for drink
+	printf("\nWould you like a drink?\nEnter Y, y, N, n: ");
+	scanf("%c", &addDrink);
+
+	//If yes to side, show drink selection
+	if(addDrink == 'y' || addDrink == 'Y') {
+		printf("\nDrinks selection opening...\n\n");
+		printf("Here are our drink options\n");
+		printf("	1. Lemonade                   $2.49\n");
+		printf("	2. Iced Tea                   $2.99\n");
+		printf("	3. Orange Juice               $2.99\n");
+		printf("	4. Apple Juice                $2.99\n");
+		printf("Enter your choice: ");
+		scanf("%d", &drinkSelection);
+
+		//If valid input, show selection
+		if(drinkSelection == 1 || drinkSelection == 2 || drinkSelection == 3 || drinkSelection == 4) {
+			drinkSelection = drinkSelection - 1;
+			printf("\n%s Selected!\n", drinkOptions[drinkSelection]);
+		}
+		else {
+			printf("\nNo drink selected\n");
+		}
+	}
 }
