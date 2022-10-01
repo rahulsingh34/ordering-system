@@ -1,2 +1,5 @@
 assn1
 a.out
+expected_output.txt
+output.txt
+.DS_Store
