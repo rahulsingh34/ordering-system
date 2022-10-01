@@ -3,27 +3,33 @@
 int main(void) {
 	//Initialization of main dish variables
 	char addMain;
-	int mainSelection = 0;
+	int mainSelection = -1;
 	float mainPrices[] = {10.99, 12.99, 8.99, 7.99, 7.99};
 	char* mainOptions[] = {"Cheeseburger", "Double Cheeseburger", "Hotdog", "BLT Sandwich", "Chicken Burger"};
 
 	//Initialization of side dish variables
 	char addSide;
-	int sideSelection = 0;
+	int sideSelection = -1;
 	float sidePrices[] = {3.49, 3.99, 3.49};
 	char* sideOptions[] = {"Fries", "Sweet Potato Fries", "Onion Rings"};
 
 	//Initialization of drink varibles
 	char addDrink;
-	int drinkSelection = 0;
+	int drinkSelection = -1;
 	float drinkPrices[] = {2.49, 2.99, 2.99, 2.99};
 	char* drinkOptions[] = {"Lemonade", "Iced Tea", "Orange Juice", "Apple Juice"};
 
 	//Initialization of dessert varibles
 	char addDessert;
-	int dessertSelection = 0;
+	int dessertSelection = -1;
 	float dessertPrices[] = {2.49, 1.49, 2.99};
 	char* dessertOptions[] = {"Doughnut", "Chocolate Chip Cookies", "Cinnamon Roll"};
+
+	//Initialization of total variables
+	float subtotal = 0.00;
+	float discounts = 0.00;
+	float tax = 0.00;
+	float total = 0.00;
 
 	//Welcome + prompt for main dish
 	printf("Welcome to SoCSBurger!\n\nCan I get you started with a main?\nEnter Y, y, N, n: ");
@@ -41,9 +47,10 @@ int main(void) {
 		printf("Enter your choice: ");
 		scanf("%d", &mainSelection);
 
-		//If valid input, show selection
+		//If valid input, show selection and add to total
 		if(mainSelection == 1 || mainSelection == 2 || mainSelection == 3 || mainSelection == 4 || mainSelection == 5) {
 			mainSelection = mainSelection - 1;
+			subtotal += mainPrices[mainSelection];
 			printf("\n%s Selected!\n", mainOptions[mainSelection]);
 		}
 		else {
@@ -68,9 +75,10 @@ int main(void) {
 		printf("Enter your choice: ");
 		scanf("%d", &sideSelection);
 
-		//If valid input, show selection
+		//If valid input, show selection and add to total
 		if(sideSelection == 1 || sideSelection == 2 || sideSelection == 3) {
 			sideSelection = sideSelection - 1;
+			subtotal += sidePrices[sideSelection];
 			printf("\n%s Selected!\n", sideOptions[sideSelection]);
 		}
 		else {
@@ -96,9 +104,10 @@ int main(void) {
 		printf("Enter your choice: ");
 		scanf("%d", &drinkSelection);
 
-		//If valid input, show selection
+		//If valid input, show selection and add to total
 		if(drinkSelection == 1 || drinkSelection == 2 || drinkSelection == 3 || drinkSelection == 4) {
 			drinkSelection = drinkSelection - 1;
+			subtotal += drinkPrices[drinkSelection];
 			printf("\n%s Selected!\n", drinkOptions[drinkSelection]);
 		}
 		else {
@@ -123,9 +132,10 @@ int main(void) {
 		printf("Enter your choice: ");
 		scanf("%d", &dessertSelection);
 
-		//If valid input, show selection
+		//If valid input, show selection and add to total
 		if(dessertSelection == 1 || dessertSelection == 2 || dessertSelection == 3 || dessertSelection == 4) {
 			dessertSelection = dessertSelection - 1;
+			subtotal += dessertPrices[dessertSelection];
 			printf("\n%s Selected!\n", dessertOptions[dessertSelection]);
 		}
 		else {
@@ -133,6 +143,27 @@ int main(void) {
 		}
 	}
 
-	//Thank you
-	printf("Thank you for your order! Computing total...");
+	//Calculate discount, taxes and totals
+	if (mainSelection >= 0 && sideSelection >= 0 && drinkSelection >= 0 && dessertSelection >= 0) {
+		discounts = (subtotal - dessertPrices[dessertSelection]) * 0.10;
+		tax = (subtotal - discounts) * 0.13;
+		total = subtotal - discounts + tax;
+	}
+	else if (mainSelection >= 0 && sideSelection >= 0 && drinkSelection >= 0) {
+		discounts = subtotal * 0.10;
+		tax = (subtotal - discounts) * 0.13;
+		total = subtotal - discounts + tax;
+	}
+	else {
+		tax = subtotal * 0.13;
+		total = subtotal + tax;
+	}
+
+	//Thank you + totals
+	printf("\nThank you for your order! Computing total...\n\n");
+	printf("Sub-total:                    $%.2f\n", subtotal);
+	printf("Discounts:                    $%.2f\n", discounts);
+	printf("Tax:                          $%.2f\n", tax);
+	printf("Total:                        $%.2f\n", total);
+	printf("\nEnjoy your SoCSBurger meal - have a nice day!\n");
 }
