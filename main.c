@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 int main(void) {
 	//Initialization of main dish variables
@@ -19,6 +18,12 @@ int main(void) {
 	int drinkSelection = 0;
 	float drinkPrices[] = {2.49, 2.99, 2.99, 2.99};
 	char* drinkOptions[] = {"Lemonade", "Iced Tea", "Orange Juice", "Apple Juice"};
+
+	//Initialization of dessert varibles
+	char addDessert;
+	int dessertSelection = 0;
+	float dessertPrices[] = {2.49, 1.49, 2.99};
+	char* dessertOptions[] = {"Doughnut", "Chocolate Chip Cookies", "Cinnamon Roll"};
 
 	//Welcome + prompt for main dish
 	printf("Welcome to SoCSBurger!\n\nCan I get you started with a main?\nEnter Y, y, N, n: ");
@@ -100,4 +105,34 @@ int main(void) {
 			printf("\nNo drink selected\n");
 		}
 	}
+
+	//Clear scanf buffer
+	fflush(stdin);
+
+	//Prompt for dessert
+	printf("\nWould you like a dessert?\nEnter Y, y, N, n: ");
+	scanf("%c", &addDessert);
+
+	//If yes to side, show dessert selection
+	if(addDessert == 'y' || addDessert == 'Y') {
+		printf("\nDessert selection opening...\n\n");
+		printf("Here are our dessert options\n");
+		printf("	1. Doughnut                   $2.49\n");
+		printf("	2. Chocolate Chip Cookie      $1.49\n");
+		printf("	3. Cinnamon Roll              $2.99\n");
+		printf("Enter your choice: ");
+		scanf("%d", &dessertSelection);
+
+		//If valid input, show selection
+		if(dessertSelection == 1 || dessertSelection == 2 || dessertSelection == 3 || dessertSelection == 4) {
+			dessertSelection = dessertSelection - 1;
+			printf("\n%s Selected!\n", dessertOptions[dessertSelection]);
+		}
+		else {
+			printf("\nNo dessert selected\n");
+		}
+	}
+
+	//Thank you
+	printf("Thank you for your order! Computing total...");
 }
