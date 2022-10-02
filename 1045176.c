@@ -61,7 +61,7 @@ int main(void) {
 
 	//Welcome + prompt for main dish
 	printf("Welcome to SoCSBurger!\n\nCan I get you started with a main?\nEnter Y, y, N, n: ");
-	scanf("%c", &addMain);
+	scanf("%s", &addMain);
 
 	//If yes to main, show main dish selection
 	if(addMain == 'y' || addMain == 'Y') {
@@ -86,12 +86,9 @@ int main(void) {
 		}
 	}
 
-	//Clear scanf buffer
-	fflush(stdin);
-
 	//Prompt for side dish
 	printf("\nWould you like a side?\nEnter Y, y, N, n: ");
-	scanf("%c", &addSide);
+	scanf("%s", &addSide);
 
 	//If yes to side, show side dish selection
 	if(addSide == 'y' || addSide == 'Y') {
@@ -114,12 +111,9 @@ int main(void) {
 		}
 	}
 
-	//Clear scanf buffer
-	fflush(stdin);
-
 	//Prompt for drink
 	printf("\nWould you like a drink?\nEnter Y, y, N, n: ");
-	scanf("%c", &addDrink);
+	scanf("%s", &addDrink);
 
 	//If yes to side, show drink selection
 	if(addDrink == 'y' || addDrink == 'Y') {
@@ -143,12 +137,9 @@ int main(void) {
 		}
 	}
 
-	//Clear scanf buffer
-	fflush(stdin);
-
 	//Prompt for dessert
 	printf("\nWould you like a dessert?\nEnter Y, y, N, n: ");
-	scanf("%c", &addDessert);
+	scanf("%s", &addDessert);
 
 	//If yes to side, show dessert selection
 	if(addDessert == 'y' || addDessert == 'Y') {
