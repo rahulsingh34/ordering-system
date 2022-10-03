@@ -162,7 +162,7 @@ int main(void) {
 		}
 	}
 
-	//Calculate discount, taxes and totals
+	//Calculate discount (if any), taxes and totals
 	if (mainSelection >= 0 && sideSelection >= 0 && drinkSelection >= 0 && dessertSelection >= 0) {
 		discounts = (subtotal - dessertPrices[dessertSelection]) * 0.10;
 		tax = (subtotal - discounts) * 0.13;
@@ -178,11 +178,16 @@ int main(void) {
 		total = subtotal + tax;
 	}
 
-	//Thank you + totals
-	printf("\nThank you for your order! Computing total...\n\n");
-	printf("Sub-total:                    $%.2f\n", subtotal);
-	printf("Discounts:                    $%.2f\n", discounts);
-	printf("Tax:                          $%.2f\n", tax);
-	printf("Total:                        $%.2f\n", total);
-	printf("\nEnjoy your SoCSBurger meal - have a nice day!\n");
+	//If subtotals = 0 then say Thanks only, else say Thank you + provide totals
+	if (subtotal < 0.001) {
+		printf("\nNo selections on the menu. We are looking forward to your next visit - have a nice day!\n");
+	}
+	else {
+		printf("\nThank you for your order! Computing total...\n\n");
+		printf("Sub-total:                    $%.2f\n", subtotal);
+		printf("Discounts:                    $%.2f\n", discounts);
+		printf("Tax:                          $%.2f\n", tax);
+		printf("Total:                        $%.2f\n", total);
+		printf("\nEnjoy your SoCSBurger meal - have a nice day!\n");
+	}
 }
