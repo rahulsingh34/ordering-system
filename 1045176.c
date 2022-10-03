@@ -86,6 +86,9 @@ int main(void) {
 		}
 	}
 
+	//Clear scanf buffer
+	fflush(stdin);
+
 	//Prompt for side dish
 	printf("\nWould you like a side?\nEnter Y, y, N, n: ");
 	scanf("%s", &addSide);
@@ -110,6 +113,9 @@ int main(void) {
 			printf("\nNo side selected\n");
 		}
 	}
+
+	//Clear scanf buffer
+	fflush(stdin);
 
 	//Prompt for drink
 	printf("\nWould you like a drink?\nEnter Y, y, N, n: ");
@@ -136,6 +142,9 @@ int main(void) {
 			printf("\nNo drink selected\n");
 		}
 	}
+
+	//Clear scanf buffer
+	fflush(stdin);
 
 	//Prompt for dessert
 	printf("\nWould you like a dessert?\nEnter Y, y, N, n: ");
