@@ -75,7 +75,7 @@ int main(void) {
 		printf("Enter your choice: ");
 		scanf("%d", &mainSelection);
 
-		//If valid input, show selection and add to total
+		//If valid input, show selection and add to total, else say no selection
 		if(mainSelection == 1 || mainSelection == 2 || mainSelection == 3 || mainSelection == 4 || mainSelection == 5) {
 			mainSelection = mainSelection - 1;
 			subtotal += mainPrices[mainSelection];
@@ -103,7 +103,7 @@ int main(void) {
 		printf("Enter your choice: ");
 		scanf("%d", &sideSelection);
 
-		//If valid input, show selection and add to total
+		//If valid input, show selection and add to total, else say no selection
 		if(sideSelection == 1 || sideSelection == 2 || sideSelection == 3) {
 			sideSelection = sideSelection - 1;
 			subtotal += sidePrices[sideSelection];
@@ -132,7 +132,7 @@ int main(void) {
 		printf("Enter your choice: ");
 		scanf("%d", &drinkSelection);
 
-		//If valid input, show selection and add to total
+		//If valid input, show selection and add to total, else say no selectionl
 		if(drinkSelection == 1 || drinkSelection == 2 || drinkSelection == 3 || drinkSelection == 4) {
 			drinkSelection = drinkSelection - 1;
 			subtotal += drinkPrices[drinkSelection];
@@ -160,7 +160,7 @@ int main(void) {
 		printf("Enter your choice: ");
 		scanf("%d", &dessertSelection);
 
-		//If valid input, show selection and add to total
+		//If valid input, show selection and add to total, else say no selection
 		if(dessertSelection == 1 || dessertSelection == 2 || dessertSelection == 3 || dessertSelection == 4) {
 			dessertSelection = dessertSelection - 1;
 			subtotal += dessertPrices[dessertSelection];
@@ -187,7 +187,7 @@ int main(void) {
 		total = subtotal + tax;
 	}
 
-	//If subtotals = 0 then say Thanks only, else say Thank you + provide totals
+	//If subtotals = 0 then say bye, else say Thank you + provide totals
 	if (subtotal < 0.001) {
 		printf("\nNo selections on the menu. We are looking forward to your next visit - have a nice day!\n");
 	}
