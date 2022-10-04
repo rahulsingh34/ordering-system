@@ -16,9 +16,9 @@ The program should be compiled using the following flags:
 -std=c99
 -Wall
 Ex. compiling:
-gcc 1045176.c -std=c99 -Wall
+gcc 1045176A1.c -std=c99 -Wall
 OR
-gcc 1045176.c -std=c99 -Wall -o assn1
+gcc 1045176A1.c -std=c99 -Wall -o assn1
 ***
 After compiling, the program should be run using one of the following commands:
 ./a.out
